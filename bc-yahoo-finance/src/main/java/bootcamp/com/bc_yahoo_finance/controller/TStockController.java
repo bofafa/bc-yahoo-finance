@@ -19,5 +19,9 @@ public class TStockController implements TStockOperation{
   public List<TStockDTO> getTstock() {
     return tStockService.getTStockDTO();
   }
+
+  // @Override
+  // public String getCookies() {
+  //   return tStockService.getYahooCookies();
   
 }

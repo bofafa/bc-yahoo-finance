@@ -6,4 +6,9 @@ import bootcamp.com.bc_yahoo_finance.model.TStockDTO;
 public interface TStockOperation {
   @GetMapping ("/tstock")
   List<TStockDTO>getTstock();
+
+
+  // @GetMapping("/yahoo-cookies")
+  // public String getCookies();
+    
 }
