@@ -20,8 +20,7 @@ public class TStockController implements TStockOperation{
     return tStockService.getTStockDTO();
   }
 
-  // @Override
-  // public String getCookies() {
-  //   return tStockService.getYahooCookies();
+  
+
   
 }

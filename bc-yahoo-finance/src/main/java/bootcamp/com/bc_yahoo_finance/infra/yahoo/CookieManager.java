@@ -45,7 +45,7 @@ public class CookieManager {
         List<String> setCookieHeader = headers.get("Set-Cookie");
         if (setCookieHeader != null && !setCookieHeader.isEmpty()) {
             String setCookieValue = setCookieHeader.get(0).split(";")[0];
-            System.out.println("Set-Cookie Header: " + setCookieValue);
+          //  System.out.println("Set-Cookie Header: " + setCookieValue);
             return setCookieValue;
         } else {
             return null;

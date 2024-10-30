@@ -7,8 +7,5 @@ public interface TStockOperation {
   @GetMapping ("/tstock")
   List<TStockDTO>getTstock();
 
-
-  // @GetMapping("/yahoo-cookies")
-  // public String getCookies();
-    
+ 
 }

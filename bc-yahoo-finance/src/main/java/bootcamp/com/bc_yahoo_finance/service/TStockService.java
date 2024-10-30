@@ -2,14 +2,17 @@ package bootcamp.com.bc_yahoo_finance.service;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import bootcamp.com.bc_yahoo_finance.infra.yahoo.CookieManager;
+import bootcamp.com.bc_yahoo_finance.entity.TStockEntity;
+import bootcamp.com.bc_yahoo_finance.model.DBStockDTO;
 import bootcamp.com.bc_yahoo_finance.model.TStockDTO;
 
-@Service
 public interface TStockService {
     List <TStockDTO> getTStockDTO();
 
      //String getYahooCookies();
+
+  List<TStockDTO> getAll() throws JsonProcessingException;
+  List<TStockEntity> saveAll (List<TStockEntity> tStockEntities);
 }

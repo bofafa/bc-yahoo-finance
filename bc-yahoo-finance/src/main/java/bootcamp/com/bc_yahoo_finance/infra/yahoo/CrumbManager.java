@@ -9,18 +9,23 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+
 
 @Service
 public class CrumbManager {
+
+    @Autowired
+    private RedisTemplate<String,String> redisTemplate;
 
     @Autowired
     private CookieManager cookieManager;
 
     public String getCrumb() throws IOException, InterruptedException {
         // Get cookies first
-        String cookies = cookieManager.getResponse();
-        System.out.println("cookies : " + cookies);
+         String cookies = cookieManager.getResponse();
+     //   System.out.println("cookies : " + cookies);
 
         // Now make a request to get the crumb
         String crumbUrl = "https://query1.finance.yahoo.com/v1/test/getcrumb";
@@ -41,6 +46,8 @@ public class CrumbManager {
 
         // The crumb is typically in the body of the response
         String crumb = httpResponse.body();
+        String cookieAndCrumb = cookies.concat(",").concat(crumb);
+        this.redisTemplate.opsForValue().set("cookieAndCrumb", cookieAndCrumb);
         System.out.println("Crumb: " + crumb);
 
         return crumb;
